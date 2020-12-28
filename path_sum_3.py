@@ -18,10 +18,10 @@ class Solution:
             self.count_of_paths += 1
             path_so_far.append(root.val)
             print("path so far for this addition: ", path_so_far)
-            left_side = []
-            right_side = []
-            self.solve_path_sum_3(root.left, self.original_sum, left_side)
-            self.solve_path_sum_3(root.right, self.original_sum, right_side)
+            # left_side = []
+            # right_side = []
+            # self.solve_path_sum_3(root.left, self.original_sum, left_side)
+            # self.solve_path_sum_3(root.right, self.original_sum, right_side)
             
         else:
             left_with_inclusion = copy.deepcopy(path_so_far)
