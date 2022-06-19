@@ -9,22 +9,23 @@ class Solution:
 
     def countUnivalSubtrees(self, root: Optional[TreeNode]) -> int:
         if (root == None):
-            return False
-
+            return 0
         self.countOfNodes = 0
         self.getCountUnivalSubtrees(root, root.val)
         return self.countOfNodes
 
-    def getCountUnivalSubtrees(self, node, parentValue):
+    def getCountUnivalSubtrees(self, node, parentValue) -> bool:
         if (node == None):
             return True
         elif (node.right == None and node.left == None):
-            print("I am in a leaf node")
             self.countOfNodes += 1
             if (node.val == parentValue):
                 return True
             else:
                 return False
         else:
-            if (self.getCountUnivalSubtrees(node.left, node.val) and self.getCountUnivalSubtrees(node.right, node.val)):
+            leftHalf = self.getCountUnivalSubtrees(node.left, node.val)
+            rightHalf = self.getCountUnivalSubtrees(node.right, node.val)
+            if (leftHalf and rightHalf):
                 self.countOfNodes += 1
+                return True
